@@ -4,38 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
     <title>Weather Dashboard</title>
 </head>
 <body>
     <h1>Weather Dashboard</h1>
-
+    
     <div class="container">
-        <div class="col"> 
-            <form class="row" id="userform">
-                <label for="city">Search For A City</label>
-                <input name="city" id="usercity" type="text"/>
-                <button type="submit">Submit</button>
-            </form>        
-            <div class="row">Search History</div>
-        </div>
-
-        <div class="col">
-            <h2 class="row" id="cityname"></h2>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
-
-            <div class="row">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+        <div class="row">
+            <div class="col-4">
+                <form id="userform">
+                    <label for="city">Search For A City</label>
+                    <input name="city" id="usercity" type="text"/>
+                    <button type="submit">Submit</button>
+                </form>        
+                <div>Search History</div>
+                    <ul></ul>
             </div>
-        </div>
-       
+             
+            <div class="col-8">
+                <h2 id="cityname"></h2>
+                <ul>
+                    <li id="temperature"></li>
+                    <li id="humidity"></li>
+                    <li id="wind"></li>
+                    <li id="uv"></li>
+                </ul>
+           
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>     
+         
+           
 
+        </div>    
     </div>
   
     <script src ="./assets/index.js"></script>

@@ -1,11 +1,13 @@
 var cityInputEl = document.querySelector("#usercity");
 var userFormEl = document.querySelector("#userform");
+var searchHistoryEl = document.querySelector("#history");
 
 var titleEl = document.querySelector("#cityname");
+var icon = document.querySelector("img");
 var temperatureEl = document.querySelector("#temperature");
 var humidityEl = document.querySelector("#humidity");
 var windSpeedEl = document.querySelector("#wind");
-var uvEl=document.querySelector("#uv");
+var uvEl = document.querySelector("#uv");
 
 
 
@@ -14,7 +16,17 @@ var formSubmitHandler = function(event) {
     //get city from input element
     var usercity = cityInputEl.value.trim();
 
-    console.log("usercity", usercity);
+   if (usercity != "") {
+    var cityList = localStorage.getItem("City");
+    localStorage.setItem("City", usercity);
+    var cityList = document.createElement("li");
+    searchHistoryEl.appendChild(cityList);  
+   }
+    var cityList = localStorage.getItem("City");
+   localStorage.setItem("City","usercity");
+  
+   searchHistoryEl.innerHtml= cityList;
+
     getLatLon(usercity);
 };
 
@@ -60,8 +72,11 @@ var displayTitle = function(city,date) {}
 }
 var displayWeather = function(data) {
     console.log("displayWeather data", data);
-   
-    titleEl.textContent = data.timezone + data.current.dt + data.current.weather.icon;
+    var iconUrl = `https://openweathermap.org/img/wn/${ data.current.weather[0].icon }.png`;
+  
+    titleEl.textContent = data.timezone + data.current.dt;
+    icon.src =  iconUrl;
+    
 
     temperatureEl.textContent = "Temperature: " + data.current.temp;
     humidityEl.textContent = "Humidity: " + data.current.humidity;

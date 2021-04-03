@@ -6,26 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+<link rel="stylesheet" href="./assets/style.css">
 
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <h1>Weather Dashboard</h1>
+    <h1 class= "bg-dark text-light text-center">Weather Dashboard</h1>
     
     <div class="container">
         <div class="row">
-            <div class="col-4">
-                <form id="userform">
-                    <label for="city">Search For A City</label>
-                    <input name="city" id="usercity" type="text"/>
-                    <button type="submit">Submit</button>
-                </form> 
-                <h3>Search History</h3>       
-                <ul id="history"></ul>
-                    <ul></ul>
+            <div class="col-3">
+                <h3>Search for a City:</h3>
+                <div class="input-group mb-3"id="userform">
+                    <input type="text" class="form-control" id="usercity" placeholder="Enter City" aria-label="Enter City" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary bg-primary text-light" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                  </div>
+
+                <h3>Search History</h3>
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush" id="history">
+                    </ul>
+                </div>
+                
             </div>
-             
-            <div class="col-8">
+                               
+            <div class="col-9">
                 <h2 id="cityname"></h2>
                 <img id="img"/>
                
@@ -36,15 +42,12 @@
                     <li id="uv"></li>
                 </ul>
            
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>     
-         
-           
+                <h2>5 Day Forecast:</h2>
 
+                <div class="row" id="fiveday"> 
+                    
+                </div>               
+            </div>    
         </div>    
     </div>
   

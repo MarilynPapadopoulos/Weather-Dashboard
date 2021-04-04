@@ -15,25 +15,25 @@ var formSubmitHandler = function(event) {
     //get city from input element
     var usercity = cityInputEl.value.trim();
 
-    localStorage.setItem("UserCity", "usercity");
+    localStorage.setItem("UserCity", usercity);
 
    if (usercity) {
     var cityList = document.createElement("li");
     cityList.addClass="list-group-item"
     cityList.textContent = usercity;
    
-   cityList.onclick = function() {
-    var cityClicked = event.target
-    localStorage.getItem("User City");
+    
+    // cityList.onclick() = function() {
+    //     console.log(event.target.li);
+    //     localStorage.getItem("User City");
+    // }
+       
    }
    
-
-
-
     searchHistoryEl.appendChild(cityList); 
    
     getLatLon(usercity);
-   }
+   
 };
 
 var getLatLon = function(userCity) {
